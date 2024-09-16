@@ -17,6 +17,7 @@ import java.util.Map;
 import com.automation.api.exceptions.UserAsertions;
 import com.automatizacion.api.tasks.ActualizarUsuario;
 import com.automatizacion.api.tasks.CrearUsuario;
+import com.automatizacion.api.tasks.EliminarUsuario;
 import com.automatizacion.api.tasks.ListarUsuarios;
 import com.automatizacion.api.tasks.ServicioBuscarUsuario;
 
@@ -87,6 +88,11 @@ public class ManejarUsuariosStepDefinitions {
                                  .body("job", equalTo(trabajo)))
                          .orComplainWith(UserAsertions.class, DATOS_DE_USUARIOS_NO_SON_CORRECTOS)
          );
+    }
+    
+    @Cuando("el usuario envia la peticion para eliminar el usuario con id (.*)")
+    public void elUsuarioEnviaLaPeticiónParaEliminar(int id) {
+    	theActorInTheSpotlight().attemptsTo(EliminarUsuario.eliminar(id));
     }
     
     @Entonces("el usuario deberia ver que la respuesta es un codigo (.*)")
