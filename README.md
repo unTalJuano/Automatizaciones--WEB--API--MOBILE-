@@ -4,11 +4,11 @@ En este repositorio puede encontrar un compilado de algunos de las proyectos rea
 
 Automatización web
 
-Se realizó el flujo de compra de un producto de la pagina https://www.demoblaze.com/index.html
+Se realizó el flujo para crear un nuevo clientede la pagina https://qastaging.siigo.com
 
 Automatización API
 
-Se realizó la automatización de los request GET, POST, PUT para la API https://reqres.in/
+Se realizó la automatización de los request GET, POST, PUT, DELETE para la API https://reqres.in/
 
 Automatización para dispositivos moviles
 
