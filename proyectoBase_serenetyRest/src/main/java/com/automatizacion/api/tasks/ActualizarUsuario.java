@@ -4,12 +4,15 @@ package com.automatizacion.api.tasks;
 
 import java.util.Map;
 
+import static com.automation.api.exceptions.UserAsertions.DATOS_DE_USUARIOS_NO_SON_CORRECTOS;
 import com.automatizacion.api.endpoint.ObtenerEndpoint;
 import com.automatizacion.api.utils.ConstruirCuerpo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Put;
+import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 public class ActualizarUsuario implements Task{
 	
@@ -26,8 +29,6 @@ public class ActualizarUsuario implements Task{
 				.header("Content-Type", "application/json")
 				.body(actualizarUsuario)
 				.relaxedHTTPSValidation("TLS")));
-        
-		
 	}
 
 	public static ActualizarUsuario actualizar() {

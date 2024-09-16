@@ -26,7 +26,7 @@ public class ServicioBuscarUsuario implements Task{
 	    	return Tasks.instrumented(ServicioBuscarUsuario.class);
 	    }
 	    
-	   public ServicioBuscarUsuario actualizar(Integer id) 
+	   public ServicioBuscarUsuario buscar(Integer id) 
 	    {
 	    	this.id=id;
 	    	return this;
