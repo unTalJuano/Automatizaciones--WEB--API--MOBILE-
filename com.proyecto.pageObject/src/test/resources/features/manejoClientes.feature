@@ -8,3 +8,4 @@ Feature: Prueba E2E para gestion de usuarios
     Given el usuario inicia sesion con las credenciales configuradas
     And el usuario verifica que inicio sesion correctamente
     When el usuario ingresa a la opcion para crear un cliente
+    And ingresa los datos obligatorios
