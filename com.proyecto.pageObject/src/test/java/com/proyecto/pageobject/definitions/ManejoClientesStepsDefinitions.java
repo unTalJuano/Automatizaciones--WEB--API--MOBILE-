@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -15,12 +17,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.paulhammant.ngwebdriver.NgWebDriver;
+import com.proyecto.pageObject.pageObjects.CrearClientePage;
+import com.proyecto.pageObject.steps.CrearClienteStep;
 import com.proyecto.pageObject.steps.LoginSteps;
 import com.proyecto.pageObject.steps.PaginaPrincipalSteps;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
@@ -38,6 +44,8 @@ public class ManejoClientesStepsDefinitions {
     LoginSteps login;
     @Steps
     PaginaPrincipalSteps paginaSteps;
+    @Steps
+    CrearClienteStep crearClienteStep;
 
     @Before
     public void configuracionInicial() {
@@ -90,6 +98,26 @@ public class ManejoClientesStepsDefinitions {
 	@When("el usuario ingresa a la opcion para crear un cliente")
 	public void el_usuario_ingresa_a_la_opcion_para_crear_un_cliente(){
 		driver.get("https://qastaging.siigo.com/#/third-party/350?Customer=true");
+	}
+	
+	@When("ingresa los datos obligatorios")
+	public void ingresa_los_datos_obligatorios(DataTable dataTable) {
+		 // Convertir la tabla de datos en una lista de Map
+        List<Map<String, String>> listaDatosClientes = dataTable.asMaps(String.class, String.class);
+
+        // Iterar sobre cada fila (cliente) en la tabla y usar los datos correspondientes
+        for (Map<String, String> datosCliente : listaDatosClientes) {
+            String identificacion = datosCliente.get("identificacion");
+            String nombre = datosCliente.get("nombre");
+            String apellido = datosCliente.get("apellido");
+         // Usamos los métodos del Page Object para interactuar con la página
+        }
+           
+	}
+
+	@Then("el usuario se crea correctamente")
+	public void el_usuario_se_crea_correctamente() {
+	    
 	}
 
 }
